@@ -1,5 +1,6 @@
 #Pakistani stocks prediction using neuralprophet model
 #made using nprophet38 enviroment 
+#to run use nprophet38 environment terminal from anaconda navigator
 
 #pip install streamlit
 #pip install psx_data_reader
@@ -921,13 +922,17 @@ st.header('Forecasting using neural prophet model')
 df = data[['Date', 'Close']] #filtering dataframe comprising only required columsn
 df = df.rename(columns={"Date": "ds", "Close": "y"}) #rename data colums to 'ds',  and Close column to 'y', so that prophet can read
 
-df 
+# to show dtaframe, remove # before df below
+#df 
 
 nprophet_model = NeuralProphet()
 metrics = nprophet_model.fit(df, freq="D")
 
 st.write('metrics dataframe')
-metrics
+
+# to show dtaframe, remove # before metrics below
+
+#metrics
 
 future_df = nprophet_model.make_future_dataframe(df, 
                                                  periods = period, 
